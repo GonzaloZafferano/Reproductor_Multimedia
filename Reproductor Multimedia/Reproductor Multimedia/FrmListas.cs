@@ -272,13 +272,20 @@ namespace Reproductor_Multimedia
         {
             try
             {
-                ContenidoMultimedia.EliminarTodosLosArchivosConContenidoMultimediaPersonalizado();
+                if(this.dtgvListas.SelectedRows != null && this.dtgvListas.SelectedRows.Count > 0)
+                {
+                    ContenidoMultimedia.EliminarTodosLosArchivosConContenidoMultimediaPersonalizado();
 
-                this.listaMultimediaPersonalizadaSeleccionada = null;
+                    this.listaMultimediaPersonalizadaSeleccionada = null;
 
-                this.OrganizarDataGridDeDtgvListas();
+                    this.OrganizarDataGridDeDtgvListas();
 
-                this.OrganizarDataGridDedtgvContenidosDeLista(null);
+                    this.OrganizarDataGridDedtgvContenidosDeLista(null);
+                }
+                else
+                {
+                    MessageBox.Show("No hay listas para borrar.", "Aviso: No hay listas para borrar.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             catch (Exception ex)
             {
@@ -288,16 +295,26 @@ namespace Reproductor_Multimedia
 
         private void btnBorrarTodosLosContenidosDeUnArchivoMultimediaPersonalizado_Click(object sender, EventArgs e)
         {
-            if(this.dtgvListas.SelectedRows != null && this.dtgvListas.SelectedRows.Count > 0)
+            try
             {
-                ContenidoMultimedia contenidoMultimedia = this.dtgvListas.SelectedRows[0].DataBoundItem as ContenidoMultimedia;
-
-                if(contenidoMultimedia != null)
+                if(this.dtgvListas.SelectedRows != null && this.dtgvListas.SelectedRows.Count > 0)
                 {
-                    contenidoMultimedia.ListaMultimedia.VaciarListaDeArchivosYGuardarCambios();
+                    ContenidoMultimedia contenidoMultimedia = this.dtgvListas.SelectedRows[0].DataBoundItem as ContenidoMultimedia;
 
-                    this.OrganizarDataGridDedtgvContenidosDeLista(contenidoMultimedia);
+                    if(contenidoMultimedia != null && contenidoMultimedia.ArchivosEnListaMultimedia.Count > 0)
+                    {
+                        contenidoMultimedia.ListaMultimedia.VaciarListaDeArchivosYGuardarCambios();
+
+                        this.OrganizarDataGridDedtgvContenidosDeLista(contenidoMultimedia);
+
+                        return;
+                    }
                 }
+                throw new Exception("No hay elementos para borrar.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Aviso: No hay elementos para borrar.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -348,6 +365,10 @@ namespace Reproductor_Multimedia
                         this.DialogResult = DialogResult.OK; 
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna lista seleccionada para cargar", "Aviso: No hay listas para cargar.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
