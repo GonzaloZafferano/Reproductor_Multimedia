@@ -1,0 +1,41 @@
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Reproductor Multimedia.exe.config
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Reproductor Multimedia.exe
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Reproductor Multimedia.pdb
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Entidades.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\MACTrackBarLib.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Text.Json.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Memory.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Text.Encodings.Web.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.ValueTuple.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Numerics.Vectors.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Buffers.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Entidades.pdb
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Entidades.dll.config
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Text.Json.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Memory.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.ValueTuple.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Numerics.Vectors.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Buffers.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\Interop.WMPLib.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\bin\Release\AxInterop.WMPLib.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.csproj.AssemblyReference.cache
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.exe.config
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Interop.WMPLib.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\AxInterop.WMPLib.dll
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.csproj.ResolveComReference.cache
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor_Multimedia.FrmCrearLista.resources
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor_Multimedia.FrmListas.resources
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor_Multimedia.FrmReproductorMultimedia.resources
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor_Multimedia.Properties.Resources.resources
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.csproj.GenerateResource.cache
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.csproj.CoreCompileInputs.cache
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.csproj.CopyComplete
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.exe
+C:\Users\GONZALO\Desktop\Reproductor Multimedia - copia\Reproductor Multimedia\obj\Release\Reproductor Multimedia.pdb

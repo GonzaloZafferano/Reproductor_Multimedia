@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFA2A5C9-DAC5-454F-860A-2762D541F3AF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Reproductor_Multimedia</RootNamespace>
+    <AssemblyName>Reproductor Multimedia</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MACTrackBarLib, Version=1.0.5896.38740, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MACTrackBarLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmCrearLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrearLista.Designer.cs">
+      <DependentUpon>FrmCrearLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListas.Designer.cs">
+      <DependentUpon>FrmListas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReproductorMultimedia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReproductorMultimedia.Designer.cs">
+      <DependentUpon>FrmReproductorMultimedia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCrearLista.resx">
+      <DependentUpon>FrmCrearLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListas.resx">
+      <DependentUpon>FrmListas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReproductorMultimedia.resx">
+      <DependentUpon>FrmReproductorMultimedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{1ef3d4f3-4c34-4aa8-afe6-6f8cb44a93fc}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\FullScreen0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Mute0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Mute1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Mute2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Mute3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Next0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Next1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Next2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Pause0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Pause1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Play0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Play1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Previous0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Previous1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Previous2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Random0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Repeat0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Sound0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Stop0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Stop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Stop02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Stop3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\FullScreen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\FullScreen2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
