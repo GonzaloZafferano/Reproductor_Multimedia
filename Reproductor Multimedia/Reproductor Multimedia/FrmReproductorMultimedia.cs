@@ -26,6 +26,7 @@ namespace Reproductor_Multimedia
         private Timer temporizador;
         private Random random;
         private string nombreDelContenidoEnReproduccion;
+        private string ultimoPatronDeFiltroValido;
         private int indicePrimeraFilaVisible;
         private int indiceFilaSeleccionada;
         private int indiceDelUltimoContenidoMultimediaReproducido;
@@ -36,6 +37,7 @@ namespace Reproductor_Multimedia
         private bool seStopeoReproduccion;
         private bool estaMuteado;
         private bool estaPantallaCompleta;
+        private bool estaFiltroActivo;
         
         public FrmReproductorMultimedia()
         {
@@ -57,9 +59,11 @@ namespace Reproductor_Multimedia
             this.temporizador.Tick += this.ComportamientoAnteReproduccionHandler;
             this.temporizador.Interval = 250;
 
+            this.ultimoPatronDeFiltroValido = string.Empty;
             this.estaSeteadaReproduccionAutomatica = false;
             this.estaSeteadoOrdenAleatorio = false;
             this.estaPantallaCompleta = false;
+            this.estaFiltroActivo = false;
             this.estaMuteado = false;
             this.ultimoValorVolumen = 0;
         }
@@ -157,6 +161,11 @@ namespace Reproductor_Multimedia
         /// </summary>
         private void RefrescarDataSource()
         {
+            if(this.estaFiltroActivo)
+            {
+                this.AplicarFiltro(this.ultimoPatronDeFiltroValido, true);
+            }
+
             BindingList<Multimedia> listaMultimedia = new BindingList<Multimedia>(this.contenidoPrincipal.ArchivosEnListaMultimedia);
 
             this.dtgvListaMultimedia.DataSource = null;
@@ -170,6 +179,112 @@ namespace Reproductor_Multimedia
         private void MensajeErrorHandler(string mensaje)
         {
             MessageBox.Show(mensaje, "Aviso: Ha ocurrido un error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {  
+            if(string.IsNullOrEmpty(this.txtBuscador.Text))
+            {
+                this.QuitarFiltro();               
+            }
+            else if(!this.AplicarFiltro(this.txtBuscador.Text, false))
+            {
+                MessageBox.Show($"No se han encontrado coincidencias con '{this.txtBuscador.Text}'","Aviso: No se encontraron coincidencias.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.ResetearVariablesEIndicesYReOrganizarDataGrid();
+            }
+        }
+
+        /// <summary>
+        /// Setea el color del control 'btnBuscar'
+        /// </summary>
+        private void SetearColorDeBtnBuscar()
+        {
+            if (this.estaFiltroActivo)
+            {
+                this.btnBuscar.BackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoDeControl;
+                this.btnBuscar.FlatAppearance.MouseDownBackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoDeControl;
+                this.btnBuscar.FlatAppearance.MouseOverBackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoDeControl;
+            }
+            else
+            {
+                this.btnBuscar.BackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoAplicacion;
+                this.btnBuscar.FlatAppearance.MouseDownBackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoAplicacion;
+                this.btnBuscar.FlatAppearance.MouseOverBackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoAplicacion;
+            }
+        }
+
+        private void btnQuitarFiltro_Click(object sender, EventArgs e)
+        {
+            this.QuitarFiltro();
+        }
+
+        /// <summary>
+        /// Aplica un filtro en la lista de contenidos.
+        /// </summary>
+        /// <param name="patron">Patron para el filtro.</param>
+        /// <param name="mostrarListaVacia">True para mostrar la lista vacia sin coincidencias de todos modos, caso contrario False.</param>
+        /// <returns>True si encontro coincidencias y aplico el filtro, caso contrario False.</returns>
+        private bool AplicarFiltro(string patron, bool mostrarListaVacia)
+        {
+            ContenidoMultimedia contenidoAuxiliar;
+            bool retorno = false;
+
+            if (!string.IsNullOrWhiteSpace(patron))
+            {
+                contenidoAuxiliar = ContenidoMultimedia.ContenidoMultimediaPrincipal.FiltrarLista(patron);
+
+                if (contenidoAuxiliar != null && ((contenidoAuxiliar.ArchivosEnListaMultimedia.Count > 0) ||
+                    (contenidoAuxiliar.ArchivosEnListaMultimedia.Count == 0 && mostrarListaVacia)))
+                {
+                    this.contenidoPrincipal = contenidoAuxiliar;
+                    this.ultimoPatronDeFiltroValido = patron;
+                    this.estaFiltroActivo = true;
+
+                    retorno = true;
+                }
+            }
+
+            this.SetearColorDeBtnBuscar();
+
+            return retorno;
+        }
+
+        /// <summary>
+        /// Quita el filtro aplicado.
+        /// </summary>
+        private void QuitarFiltro()
+        {
+            this.txtBuscador.Text = string.Empty;
+            this.ultimoPatronDeFiltroValido = string.Empty;
+
+            if(this.estaFiltroActivo)
+            {
+                this.estaFiltroActivo = false;
+
+                this.contenidoPrincipal = ContenidoMultimedia.ContenidoMultimediaPrincipal;
+
+                this.SetearColorDeBtnBuscar();
+
+                this.ResetearVariablesEIndicesYReOrganizarDataGrid();
+            }
+        }
+
+        /// <summary>
+        /// Resetea los indices y reorganiza el datagrid.
+        /// Si hay contenido en reproduccion, resetea los mismos y comienza nuevamente a reproducir la lista presente en el datagrid.
+        /// </summary>
+        private void ResetearVariablesEIndicesYReOrganizarDataGrid()
+        {
+            this.ResetearIndices();
+            this.OrganizarDataGrid();
+
+            if(this.estaReproduciendoContenido)
+            {
+                this.ResetearVariablesYReproducirContenidoSeleccionadoEnElDataGrid();
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -248,11 +363,11 @@ namespace Reproductor_Multimedia
         {
             bool eliminoElementos = false;
 
-            if(this.contenidoPrincipal.ArchivosEnListaMultimedia.Count > 0)
+            if(ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia.Count > 0)
             {
-                for (int i = this.contenidoPrincipal.ArchivosEnListaMultimedia.Count - 1; i >= 0; i--)
+                for (int i = ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia.Count - 1; i >= 0; i--)
                 {
-                    if(this.contenidoPrincipal.ArchivosEnListaMultimedia[i].EstaSeleccionado)
+                    if(ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia[i].EstaSeleccionado)
                     {
                         if (i < this.indiceDelUltimoContenidoMultimediaReproducido)
                         {
@@ -260,12 +375,12 @@ namespace Reproductor_Multimedia
                         }             
 
                         if (this.reproductorMultimedia.currentMedia != null &&
-                           this.reproductorMultimedia.currentMedia.sourceURL == this.contenidoPrincipal.ArchivosEnListaMultimedia[i].RutaAbsolutaDelArchivo)
+                           this.reproductorMultimedia.currentMedia.sourceURL == ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia[i].RutaAbsolutaDelArchivo)
                         {
                             this.StopearReproduccion();
                         }
 
-                        this.contenidoPrincipal.ListaMultimedia.EliminarArchivo(this.contenidoPrincipal.ArchivosEnListaMultimedia[i]);
+                        ContenidoMultimedia.ContenidoMultimediaPrincipal.ListaMultimedia.EliminarArchivo(ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia[i]);
                         
                         eliminoElementos = true;
                     }
@@ -273,7 +388,7 @@ namespace Reproductor_Multimedia
 
                 if(eliminoElementos)
                 {
-                    this.contenidoPrincipal.ListaMultimedia.GuardarCambiosEnListaDeArchivos();
+                    ContenidoMultimedia.ContenidoMultimediaPrincipal.ListaMultimedia.GuardarCambiosEnListaDeArchivos();
                     this.cBoxSeleccionarTodo.Checked = false;
 
                     this.OrganizarDataGrid();
@@ -299,8 +414,8 @@ namespace Reproductor_Multimedia
                 Multimedia contenidoMultimedia = dataGrid.Rows[e.RowIndex].DataBoundItem as Multimedia;
 
                 if(contenidoMultimedia != null)
-                {               
-                    this.contenidoPrincipal.ListaMultimedia.EliminarArchivoYGuardarCambios(contenidoMultimedia);
+                {
+                    ContenidoMultimedia.ContenidoMultimediaPrincipal.ListaMultimedia.EliminarArchivoYGuardarCambios(contenidoMultimedia);
 
                     this.indiceFilaSeleccionada = (dataGrid.Rows.Count - 1) == e.RowIndex ? e.RowIndex -1 : e.RowIndex;                       
                
@@ -351,8 +466,6 @@ namespace Reproductor_Multimedia
                 e.RowIndex >= 0 && e.RowIndex < dataGrid.Rows.Count &&
                 dataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewTextBoxCell)
             {
-                this.indiceDelUltimoContenidoMultimediaReproducido = e.RowIndex;
-
                 this.ResetearVariablesYReproducirContenidoSeleccionadoEnElDataGrid();
             }
         }
@@ -387,6 +500,8 @@ namespace Reproductor_Multimedia
                     this.nombreDelContenidoEnReproduccion = contenidoMultimedia.NombreArchivo;
 
                     this.SetearURLYReproducirContenidoInmediatamente(contenidoMultimedia.RutaAbsolutaDelArchivo);
+
+                    this.indiceDelUltimoContenidoMultimediaReproducido = this.dtgvListaMultimedia.SelectedRows[0].Index;
                 }
             }
         }
@@ -583,15 +698,15 @@ namespace Reproductor_Multimedia
 
         private void btnAgregarALista_Click(object sender, EventArgs e)
         {
-            if(this.contenidoPrincipal.ArchivosEnListaMultimedia.Count > 0)
+            if(ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia.Count > 0)
             {
                 List<Multimedia> listaParaAgregar = new List<Multimedia>();
 
-                for(int i = 0; i < this.contenidoPrincipal.ArchivosEnListaMultimedia.Count; i++)
+                for(int i = 0; i < ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia.Count; i++)
                 {
-                    if(this.contenidoPrincipal.ArchivosEnListaMultimedia[i].EstaSeleccionado)
+                    if(ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia[i].EstaSeleccionado)
                     {
-                        listaParaAgregar.Add(this.contenidoPrincipal.ArchivosEnListaMultimedia[i]);
+                        listaParaAgregar.Add(ContenidoMultimedia.ContenidoMultimediaPrincipal.ArchivosEnListaMultimedia[i]);
                     }
                 }
 
@@ -617,12 +732,12 @@ namespace Reproductor_Multimedia
 
             if(mostrarListas.ShowDialog() == DialogResult.OK && mostrarListas.ListaMultimediaPersonalizadaSeleccionada != null)
             {
-                this.contenidoPrincipal.ListaMultimedia.VaciarListaDeArchivos();
+                ContenidoMultimedia.ContenidoMultimediaPrincipal.ListaMultimedia.VaciarListaDeArchivos();
 
                 this.StopearReproduccion();
                 this.ResetearIndices();
 
-                this.contenidoPrincipal.ExtenderListaDeArchivosYGuardarCambios(mostrarListas.ListaMultimediaPersonalizadaSeleccionada.RutasAbsolutasDeArchivosMultimediaEnContenidoMultimediaPersonalizado);               
+                ContenidoMultimedia.ContenidoMultimediaPrincipal.ExtenderListaDeArchivosYGuardarCambios(mostrarListas.ListaMultimediaPersonalizadaSeleccionada.RutasAbsolutasDeArchivosMultimediaEnContenidoMultimediaPersonalizado);               
 
                 this.OrganizarDataGrid();
 
@@ -830,6 +945,7 @@ namespace Reproductor_Multimedia
             }
 
             this.reproductorMultimedia.settings.volume = this.barraDeVolumen.Value;
+            this.lblVolumen.Text = this.barraDeVolumen.Value.ToString();
         }
 
         private void btnPantallaCompleta_Click(object sender, EventArgs e)
@@ -1017,7 +1133,8 @@ namespace Reproductor_Multimedia
                              !Object.ReferenceEquals(control, this.btnTemaRojo) &&
                              !Object.ReferenceEquals(control, this.btnTemaVerde) &&
                              !Object.ReferenceEquals(control, this.btnOrdenAleatorio) &&
-                             !Object.ReferenceEquals(control, this.btnComenzarAutomaticamenteProximoContenido))   
+                             !Object.ReferenceEquals(control, this.btnComenzarAutomaticamenteProximoContenido) &&
+                             !Object.ReferenceEquals(control, this.btnBuscar))   
                     {
                         control.BackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoAplicacion;
                     }
@@ -1050,6 +1167,7 @@ namespace Reproductor_Multimedia
             this.columnaCheckBox.DefaultCellStyle.BackColor = FrmReproductorMultimedia.TemaAplicacion.ColorDeFondoAplicacionAlternativo;
             this.columnaCheckBox.DefaultCellStyle.SelectionBackColor = FrmReproductorMultimedia.TemaAplicacion.ColorSeleccion;
 
+            this.SetearColorDeBtnBuscar();
             this.SetearColorDebtnOrdenAleatorio();
             this.SetearColorDebtnComenzarAutomaticamenteProximoContenido();
         }

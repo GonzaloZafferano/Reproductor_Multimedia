@@ -142,14 +142,17 @@
   <data name="Next2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Recursos\Next2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FullScreen0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Recursos\FullScreen0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Stop3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Recursos\Stop3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stop1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Recursos\Stop1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Mute0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\Recursos\Mute0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FullScreen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Recursos\FullScreen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Next1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Recursos\Next1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,22 +175,25 @@
   <data name="Previous1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Recursos\Previous1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Recursos\Play1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FullScreen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Recursos\FullScreen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Next0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Recursos\Next0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mute2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\Recursos\Mute2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\Recursos\Play1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mute0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Recursos\Mute0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FullScreen0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\Recursos\FullScreen0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Lupa0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Recursos\Lupa0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FullScreen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\Recursos\FullScreen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FullScreen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\Recursos\FullScreen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="X0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\Recursos\X0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

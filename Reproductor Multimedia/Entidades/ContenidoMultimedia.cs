@@ -17,7 +17,7 @@ namespace Entidades
 
         static ContenidoMultimedia()
         {
-            ContenidoMultimedia.contenidoMultimediaPrincipal = new ContenidoMultimedia("ListaMultimedia");
+            ContenidoMultimedia.LeerContenidoMultimediaPrincipalDelArchivo();
         }
 
         public ContenidoMultimedia(string nombreListaMultimedia)
@@ -145,12 +145,38 @@ namespace Entidades
         }    
 
         /// <summary>
+        /// Filtra la lista segun el patron de busqueda.
+        /// </summary>
+        /// <param name="patron">Patron de busqueda.</param>
+        /// <returns>Una lista con las coincidencias. Retorna null si el patron es nulo o vacio.</returns>
+        public ContenidoMultimedia FiltrarLista(string patron)
+        {
+            ContenidoMultimedia contenidoMultimedia = null;
+
+            if(!string.IsNullOrWhiteSpace(patron))
+            {
+                contenidoMultimedia = new ContenidoMultimedia("ListaTemporal");
+
+                contenidoMultimedia.ListaMultimedia.Archivos = this.ArchivosEnListaMultimedia.Where((multimedia)=> multimedia.NombreArchivo.ToLower().Contains(patron.ToLower())).ToList();                        
+            }
+            return contenidoMultimedia;
+        }
+
+        /// <summary>
         /// Agrega un archivo en la lista de archivos, a partir de una ruta completa valida.
         /// </summary>
         /// <param name="rutaAbsolutaDelArchivo">Ruta completa del archivo.</param>
         private void AgregarArchivoAPartirDeUnaRutaAbsoluta(string rutaAbsolutaDelArchivo)
         {       
             this.ListaMultimedia.AgregarArchivo(new Multimedia(rutaAbsolutaDelArchivo));    
+        }
+
+        /// <summary>
+        /// Lee el contenido multimedia principal del archivo.
+        /// </summary>
+        private static void LeerContenidoMultimediaPrincipalDelArchivo()
+        {
+            ContenidoMultimedia.contenidoMultimediaPrincipal = new ContenidoMultimedia("ListaMultimedia");
         }
 
         /// <summary>

@@ -45,7 +45,6 @@ C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multim
 C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multimedia\Entidades\bin\Release\System.Text.Json.xml
 C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multimedia\Entidades\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multimedia\Entidades\bin\Release\System.ValueTuple.xml
-C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multimedia\Entidades\obj\Release\Entidades.csproj.AssemblyReference.cache
 C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multimedia\Entidades\obj\Release\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multimedia\Entidades\obj\Release\Entidades.csproj.CopyComplete
 C:\Users\GONZALO\Desktop\Nueva carpeta\Reproductor_Multimedia\Reproductor Multimedia\Entidades\obj\Release\Entidades.dll

@@ -13,7 +13,7 @@ namespace Entidades
         private List<T> archivos;
         private string rutaRelativaArchivoJSON;
 
-        public List<T> Archivos { get => this.archivos; }
+        public List<T> Archivos { get => this.archivos; internal set => this.archivos = value; }
 
         /// <summary>
         /// Constructor de la clase Lista. Al utilizar este constructor, se intenta leer el archivo recibido por parametro

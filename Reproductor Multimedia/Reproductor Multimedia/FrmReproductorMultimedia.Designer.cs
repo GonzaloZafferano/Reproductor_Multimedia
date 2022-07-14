@@ -29,7 +29,7 @@ namespace Reproductor_Multimedia
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReproductorMultimedia));
             this.btnImportarContenido = new System.Windows.Forms.Button();
             this.dtgvListaMultimedia = new System.Windows.Forms.DataGridView();
@@ -45,6 +45,10 @@ namespace Reproductor_Multimedia
             this.btnTemaAzul = new System.Windows.Forms.Button();
             this.barraDeReproduccionDeContenido = new XComponent.SliderBar.MACTrackBar();
             this.barraDeVolumen = new XComponent.SliderBar.MACTrackBar();
+            this.cBoxSeleccionarTodo = new System.Windows.Forms.CheckBox();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnQuitarFiltro = new System.Windows.Forms.Button();
             this.btnPantallaCompleta = new System.Windows.Forms.Button();
             this.btnPlayPause = new System.Windows.Forms.PictureBox();
             this.btnMute = new System.Windows.Forms.PictureBox();
@@ -55,7 +59,7 @@ namespace Reproductor_Multimedia
             this.btnStop = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
-            this.cBoxSeleccionarTodo = new System.Windows.Forms.CheckBox();
+            this.lblVolumen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListaMultimedia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reproductorMultimedia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlayPause)).BeginInit();
@@ -95,14 +99,14 @@ namespace Reproductor_Multimedia
             this.dtgvListaMultimedia.ColumnHeadersHeight = 29;
             this.dtgvListaMultimedia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvListaMultimedia.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvListaMultimedia.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvListaMultimedia.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvListaMultimedia.GridColor = System.Drawing.Color.White;
             this.dtgvListaMultimedia.Location = new System.Drawing.Point(12, 560);
             this.dtgvListaMultimedia.Margin = new System.Windows.Forms.Padding(2);
@@ -278,6 +282,7 @@ namespace Reproductor_Multimedia
             // 
             this.barraDeReproduccionDeContenido.BackColor = System.Drawing.Color.Transparent;
             this.barraDeReproduccionDeContenido.BorderColor = System.Drawing.Color.Transparent;
+            this.barraDeReproduccionDeContenido.Cursor = System.Windows.Forms.Cursors.Hand;
             this.barraDeReproduccionDeContenido.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barraDeReproduccionDeContenido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.barraDeReproduccionDeContenido.IndentHeight = 6;
@@ -305,10 +310,11 @@ namespace Reproductor_Multimedia
             // 
             this.barraDeVolumen.BackColor = System.Drawing.Color.Transparent;
             this.barraDeVolumen.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.barraDeVolumen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.barraDeVolumen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barraDeVolumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
             this.barraDeVolumen.IndentHeight = 6;
-            this.barraDeVolumen.Location = new System.Drawing.Point(706, 431);
+            this.barraDeVolumen.Location = new System.Drawing.Point(697, 431);
             this.barraDeVolumen.Margin = new System.Windows.Forms.Padding(2);
             this.barraDeVolumen.Maximum = 10;
             this.barraDeVolumen.Minimum = 0;
@@ -329,11 +335,63 @@ namespace Reproductor_Multimedia
             this.barraDeVolumen.Value = 0;
             this.barraDeVolumen.Scroll += new System.EventHandler(this.barraDeVolumen_Scroll);
             // 
+            // cBoxSeleccionarTodo
+            // 
+            this.cBoxSeleccionarTodo.AutoSize = true;
+            this.cBoxSeleccionarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBoxSeleccionarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cBoxSeleccionarTodo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxSeleccionarTodo.Location = new System.Drawing.Point(516, 763);
+            this.cBoxSeleccionarTodo.Name = "cBoxSeleccionarTodo";
+            this.cBoxSeleccionarTodo.Size = new System.Drawing.Size(158, 23);
+            this.cBoxSeleccionarTodo.TabIndex = 32;
+            this.cBoxSeleccionarTodo.Text = "Seleccionar Todo";
+            this.cBoxSeleccionarTodo.UseVisualStyleBackColor = true;
+            this.cBoxSeleccionarTodo.CheckedChanged += new System.EventHandler(this.cBoxSeleccionarTodo_CheckedChanged);
+            // 
+            // txtBuscador
+            // 
+            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscador.Location = new System.Drawing.Point(40, 761);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(422, 26);
+            this.txtBuscador.TabIndex = 33;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = global::Reproductor_Multimedia.Properties.Resources.Lupa0;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Location = new System.Drawing.Point(468, 759);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(25, 28);
+            this.btnBuscar.TabIndex = 34;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnQuitarFiltro
+            // 
+            this.btnQuitarFiltro.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuitarFiltro.BackgroundImage = global::Reproductor_Multimedia.Properties.Resources.X0;
+            this.btnQuitarFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuitarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitarFiltro.FlatAppearance.BorderSize = 0;
+            this.btnQuitarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitarFiltro.Location = new System.Drawing.Point(12, 763);
+            this.btnQuitarFiltro.Name = "btnQuitarFiltro";
+            this.btnQuitarFiltro.Size = new System.Drawing.Size(22, 22);
+            this.btnQuitarFiltro.TabIndex = 35;
+            this.btnQuitarFiltro.UseVisualStyleBackColor = false;
+            this.btnQuitarFiltro.Click += new System.EventHandler(this.btnQuitarFiltro_Click);
+            // 
             // btnPantallaCompleta
             // 
             this.btnPantallaCompleta.BackColor = System.Drawing.Color.Transparent;
             this.btnPantallaCompleta.BackgroundImage = global::Reproductor_Multimedia.Properties.Resources.FullScreen0;
             this.btnPantallaCompleta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPantallaCompleta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPantallaCompleta.FlatAppearance.BorderSize = 0;
             this.btnPantallaCompleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPantallaCompleta.ForeColor = System.Drawing.Color.White;
@@ -515,24 +573,25 @@ namespace Reproductor_Multimedia
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
-            // cBoxSeleccionarTodo
+            // lblVolumen
             // 
-            this.cBoxSeleccionarTodo.AutoSize = true;
-            this.cBoxSeleccionarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cBoxSeleccionarTodo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxSeleccionarTodo.Location = new System.Drawing.Point(516, 763);
-            this.cBoxSeleccionarTodo.Name = "cBoxSeleccionarTodo";
-            this.cBoxSeleccionarTodo.Size = new System.Drawing.Size(158, 23);
-            this.cBoxSeleccionarTodo.TabIndex = 32;
-            this.cBoxSeleccionarTodo.Text = "Seleccionar Todo";
-            this.cBoxSeleccionarTodo.UseVisualStyleBackColor = true;
-            this.cBoxSeleccionarTodo.CheckedChanged += new System.EventHandler(this.cBoxSeleccionarTodo_CheckedChanged);
+            this.lblVolumen.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVolumen.Location = new System.Drawing.Point(730, 516);
+            this.lblVolumen.Name = "lblVolumen";
+            this.lblVolumen.Size = new System.Drawing.Size(38, 30);
+            this.lblVolumen.TabIndex = 36;
+            this.lblVolumen.Text = "0";
+            this.lblVolumen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmReproductorMultimedia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 838);
+            this.Controls.Add(this.lblVolumen);
+            this.Controls.Add(this.btnQuitarFiltro);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBuscador);
             this.Controls.Add(this.cBoxSeleccionarTodo);
             this.Controls.Add(this.btnPantallaCompleta);
             this.Controls.Add(this.barraDeVolumen);
@@ -603,6 +662,10 @@ namespace Reproductor_Multimedia
         private XComponent.SliderBar.MACTrackBar barraDeVolumen;
         private System.Windows.Forms.Button btnPantallaCompleta;
         private System.Windows.Forms.CheckBox cBoxSeleccionarTodo;
+        private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnQuitarFiltro;
+        private System.Windows.Forms.Label lblVolumen;
     }
 }
 

@@ -93,6 +93,16 @@ namespace Reproductor_Multimedia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lupa0 {
+            get {
+                object obj = ResourceManager.GetObject("Lupa0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Mute0 {
             get {
                 object obj = ResourceManager.GetObject("Mute0", resourceCulture);
@@ -296,6 +306,16 @@ namespace Reproductor_Multimedia.Properties {
         internal static System.Drawing.Bitmap Stop3 {
             get {
                 object obj = ResourceManager.GetObject("Stop3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X0 {
+            get {
+                object obj = ResourceManager.GetObject("X0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

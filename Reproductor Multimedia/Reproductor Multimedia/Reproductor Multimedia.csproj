@@ -226,5 +226,11 @@
   <ItemGroup>
     <None Include="bin\Debug\Recursos\FullScreen2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\Lupa0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Recursos\X0.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
