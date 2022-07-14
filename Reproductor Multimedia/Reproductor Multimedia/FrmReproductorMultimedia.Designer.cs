@@ -345,6 +345,7 @@ namespace Reproductor_Multimedia
             this.cBoxSeleccionarTodo.Name = "cBoxSeleccionarTodo";
             this.cBoxSeleccionarTodo.Size = new System.Drawing.Size(158, 23);
             this.cBoxSeleccionarTodo.TabIndex = 32;
+            this.cBoxSeleccionarTodo.TabStop = false;
             this.cBoxSeleccionarTodo.Text = "Seleccionar Todo";
             this.cBoxSeleccionarTodo.UseVisualStyleBackColor = true;
             this.cBoxSeleccionarTodo.CheckedChanged += new System.EventHandler(this.cBoxSeleccionarTodo_CheckedChanged);
@@ -356,6 +357,7 @@ namespace Reproductor_Multimedia
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(422, 26);
             this.txtBuscador.TabIndex = 33;
+            this.txtBuscador.TabStop = false;
             // 
             // btnBuscar
             // 
@@ -368,6 +370,7 @@ namespace Reproductor_Multimedia
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(25, 28);
             this.btnBuscar.TabIndex = 34;
+            this.btnBuscar.TabStop = false;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -383,6 +386,7 @@ namespace Reproductor_Multimedia
             this.btnQuitarFiltro.Name = "btnQuitarFiltro";
             this.btnQuitarFiltro.Size = new System.Drawing.Size(22, 22);
             this.btnQuitarFiltro.TabIndex = 35;
+            this.btnQuitarFiltro.TabStop = false;
             this.btnQuitarFiltro.UseVisualStyleBackColor = false;
             this.btnQuitarFiltro.Click += new System.EventHandler(this.btnQuitarFiltro_Click);
             // 
@@ -400,6 +404,7 @@ namespace Reproductor_Multimedia
             this.btnPantallaCompleta.Name = "btnPantallaCompleta";
             this.btnPantallaCompleta.Size = new System.Drawing.Size(56, 52);
             this.btnPantallaCompleta.TabIndex = 31;
+            this.btnPantallaCompleta.TabStop = false;
             this.btnPantallaCompleta.UseVisualStyleBackColor = false;
             this.btnPantallaCompleta.Click += new System.EventHandler(this.btnPantallaCompleta_Click);
             // 
