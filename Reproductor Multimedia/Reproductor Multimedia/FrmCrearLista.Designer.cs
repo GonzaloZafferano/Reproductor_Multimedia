@@ -40,7 +40,7 @@ namespace Reproductor_Multimedia
             // 
             this.txtNombreLista.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreLista.Location = new System.Drawing.Point(13, 44);
-            this.txtNombreLista.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombreLista.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreLista.MaxLength = 20;
             this.txtNombreLista.Name = "txtNombreLista";
             this.txtNombreLista.Size = new System.Drawing.Size(356, 29);
@@ -60,7 +60,7 @@ namespace Reproductor_Multimedia
             // 
             this.btnCrearLista.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearLista.Location = new System.Drawing.Point(253, 89);
-            this.btnCrearLista.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCrearLista.Margin = new System.Windows.Forms.Padding(2);
             this.btnCrearLista.Name = "btnCrearLista";
             this.btnCrearLista.Size = new System.Drawing.Size(115, 37);
             this.btnCrearLista.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace Reproductor_Multimedia
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(13, 89);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(115, 37);
             this.btnCancelar.TabIndex = 3;
@@ -91,9 +91,8 @@ namespace Reproductor_Multimedia
             this.Controls.Add(this.txtNombreLista);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmCrearLista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu: Creación de lista";
