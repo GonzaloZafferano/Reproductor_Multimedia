@@ -61,6 +61,7 @@ namespace Entidades
             }
         }
 
+        [Browsable(false)]
         public string NombreListaMultimedia
         {
             get
@@ -90,6 +91,14 @@ namespace Entidades
                 }
 
                 this.nombreListaMultimedia = value;
+            }
+        }
+
+        public string NombreListaMultimediaConCantidadDeElementos
+        {
+            get
+            {
+                return $"{this.NombreListaMultimedia} - ({this.ArchivosEnListaMultimedia.Count} elementos)";
             }
         }
 

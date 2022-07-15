@@ -200,8 +200,8 @@ namespace Reproductor_Multimedia
             this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Name = "lblArchivosMultimediaDentroDeLaListaPersonalizada";
             this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Size = new System.Drawing.Size(574, 34);
             this.lblArchivosMultimediaDentroDeLaListaPersonalizada.TabIndex = 12;
-            this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Text = "Sin archivos multimedia para mostrar";
             this.lblArchivosMultimediaDentroDeLaListaPersonalizada.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblArchivosMultimediaDentroDeLaListaPersonalizada.TextChanged += new System.EventHandler(this.lblArchivosMultimediaDentroDeLaListaPersonalizada_TextChanged);
             // 
             // btnRenombrarLista
             // 

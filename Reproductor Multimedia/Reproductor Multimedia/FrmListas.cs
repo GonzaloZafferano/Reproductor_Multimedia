@@ -74,6 +74,10 @@ namespace Reproductor_Multimedia
                 this.listaMultimediaPersonalizadaSeleccionada = this.listasMultimediaPersonalizadas[0];
                 this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Text = $"Archivos multimedia dentro de la lista '{this.listasMultimediaPersonalizadas[0].NombreListaMultimedia}'";
             }
+            else
+            {
+                this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Text = "Sin archivos multimedia para mostrar.";
+            }
 
             this.AplicarTema();
         }
@@ -95,7 +99,7 @@ namespace Reproductor_Multimedia
             this.columnaTextoDeDtgvListas = new DataGridViewTextBoxColumn();
             this.columnaTextoDeDtgvListas.CellTemplate = new DataGridViewTextBoxCell();
             this.columnaTextoDeDtgvListas.Name = "nombre";
-            this.columnaTextoDeDtgvListas.DataPropertyName = "NombreListaMultimedia";
+            this.columnaTextoDeDtgvListas.DataPropertyName = "NombreListaMultimediaConCantidadDeElementos";
             this.columnaTextoDeDtgvListas.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.columnaTextoDeDtgvListas.DisplayIndex = 1;
             this.columnaTextoDeDtgvListas.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -445,6 +449,22 @@ namespace Reproductor_Multimedia
             else
             {
                 MessageBox.Show("Debe seleccionar un contenido multimedia para renombrar.", "Aviso: No se ha seleccionado contenido.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void lblArchivosMultimediaDentroDeLaListaPersonalizada_TextChanged(object sender, EventArgs e)
+        {
+            if (this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Text.Length > 60)
+            {
+                this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font = new Font(this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font.Name, 10, this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font.Style);
+            }
+            else if (this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Text.Length > 52)
+            {
+                this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font = new Font(this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font.Name, 12, this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font.Style);
+            }
+            else
+            {
+                this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font = new Font(this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font.Name, 14, this.lblArchivosMultimediaDentroDeLaListaPersonalizada.Font.Style);
             }
         }
     }
